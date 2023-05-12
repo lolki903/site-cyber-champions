@@ -15,6 +15,10 @@ module.exports = {
       'palmedium':['Pally', 'medium'],
       'palbold':['Pally', 'bold'],
   },
+  lineHeight:{
+    'extra-loose': '2.5',
+    '19': '19px',
+  },
   plugins: [],
 }
 }

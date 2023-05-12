@@ -591,6 +591,10 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
 .mb-40 {
   margin-bottom: 10rem;
 }
@@ -611,6 +615,14 @@ video {
   margin-left: 10rem;
 }
 
+.ml-7 {
+  margin-left: 1.75rem;
+}
+
+.mr-10 {
+  margin-right: 2.5rem;
+}
+
 .mr-20 {
   margin-right: 5rem;
 }
@@ -623,12 +635,28 @@ video {
   margin-top: 2.5rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .mt-20 {
   margin-top: 5rem;
 }
 
 .mt-3 {
   margin-top: 0.75rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
 }
 
 .flex {
@@ -647,6 +675,30 @@ video {
   width: 50%;
 }
 
+.w-10\/12 {
+  width: 83.333333%;
+}
+
+.w-2\/12 {
+  width: 16.666667%;
+}
+
+.w-3\/12 {
+  width: 25%;
+}
+
+.w-3\/5 {
+  width: 60%;
+}
+
+.w-6\/12 {
+  width: 50%;
+}
+
+.w-7\/12 {
+  width: 58.333333%;
+}
+
 .w-8\/12 {
   width: 66.666667%;
 }
@@ -659,8 +711,16 @@ video {
   width: 100%;
 }
 
+.w-5\/12 {
+  width: 41.666667%;
+}
+
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -675,12 +735,25 @@ video {
   justify-content: center;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
 
 .border-2 {
   border-width: 2px;
+}
+
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
 .bg-acheter {
@@ -691,6 +764,11 @@ video {
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(15 21 89 / var(--tw-bg-opacity));
+}
+
+.bg-rose {
+  --tw-bg-opacity: 1;
+  background-color: rgb(232 41 98 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -712,6 +790,10 @@ video {
   padding: 0.75rem;
 }
 
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -724,12 +806,32 @@ video {
   padding-bottom: 10rem;
 }
 
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+
 .pb-60 {
   padding-bottom: 15rem;
 }
 
 .pb-7 {
   padding-bottom: 1.75rem;
+}
+
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
+.pl-8 {
+  padding-left: 2rem;
+}
+
+.pr-8 {
+  padding-right: 2rem;
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
 }
 
 .pt-10 {
@@ -746,6 +848,10 @@ video {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
 .pt-7 {
@@ -771,8 +877,17 @@ video {
   line-height: 1;
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.leading-19 {
+  line-height: 19px;
 }
 
 .text-acheter {

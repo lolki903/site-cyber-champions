@@ -1,20 +1,19 @@
+import React from 'react';
+import { BrowserRouter, Route,Routes } from 'react-router-dom';
+import Banner from './Screen/Banner copy';
+import Home from './Screen/Home';
+import Newsletter from './Screen/Newsletter';
 
-import './App.css';
-import Banner from './Screen/Banner';
-import Preven from './Screen/Preven';
-import Themes from './Screen/Themes';
-import './dist/output.css'
-import TestGame from './Screen/TestGame';
-
-function App() {
+const App = () => {
   return (
-    <>
-   <Banner />
-   <Preven />
-   <Themes />
-   <TestGame />
-    </>
+    <BrowserRouter>
+      <Routes >
+        <Route path="/" component={Home} />
+        <Route path="/about" component={Newsletter} />
+        <Route path="/contact" component={Banner} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
