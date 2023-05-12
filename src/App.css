@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.cdnfonts.com/css/satoshi');
 .App {
   text-align: center;
 }
@@ -41,4 +42,10 @@
 }
 .banner{
   background: #0F1559
+}
+.body{
+  font-family: 'Satoshi', sans-serif;                                 
+}
+.forminput{
+  width: 56%;
 }
