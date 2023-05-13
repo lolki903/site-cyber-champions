@@ -19,6 +19,17 @@ module.exports = {
     'extra-loose': '2.5',
     '19': '19px',
   },
+  fontSize:{
+    'labell': '11px',
+    '3xs': '0.5rem',
+    '4xs': '0.375rem',
+  },
+  width:{
+    'img':' 668px',
+  },
+  height:{
+    'img':'494px',
+  },
   plugins: [],
 }
 }
