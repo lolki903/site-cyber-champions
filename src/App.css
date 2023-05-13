@@ -49,6 +49,9 @@
 .forminput{
   width: 56%;
 }
+.formname{
+  width: 58%;
+}
 .label{
   font-size: 10px;
   margin-top: 6%;
@@ -56,4 +59,7 @@
 }
 .moins{
   margin-top: -3%;
+}
+.moinsplus{
+  margin-top: -6.5%;
 }

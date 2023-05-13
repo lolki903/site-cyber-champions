@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import Home from "./Screen/Home";
 import Contact from "./Screen/Contact";
 import NotFoundPage from "./Screen/404";
+import Create from "./Screen/Create";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
   {
     path: "/notrejeu",
     element: <Games />,
-  }
+  },
+  {
+    path: "/compte",
+    element: <Create />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
