@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import React, { useState } from "react";
 import { Header } from "./Header";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
