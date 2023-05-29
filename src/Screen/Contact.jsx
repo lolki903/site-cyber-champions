@@ -8,13 +8,14 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faSms } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 const Contact = () => {
-    const cssform =  " border-gray-400 rounded-lg p-4 ml-2 w-10/12"
+    const cssform =  " border-gray-400 rounded-lg p-4 pb-8 ml-2 w-10/12"
     const [email, setEmail] = useState("")
     const [telephone, setTelephone] = useState("")
     const [message, setMessage] = useState("")
     const [nom, setNom] = useState("")
     const [prenom, setPrenom] = useState("")
-    const cssName ="border-gray-400 rounded-lg p-4 ml-8 w-8/12 flex-row"
+    const cssName ="border-gray-400 rounded-lg p-4 pb-8 ml-8 w-8/12 flex-row"
+
     return (
         <div className="bg-primary">
         <Header />
@@ -41,7 +42,7 @@ const Contact = () => {
                     <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" icon={faPhone} className= {cssform} onChange={(e) => setTelephone(e.target.value)} value={telephone} label="Téléphone" />
                     <Input type="text" name="message" id="message" placeholder="Message" icon={faSms} className= {cssform} onChange={(e) => setMessage(e.target.value)} value={message} label="Message" />
                 
-                    <Input type="button" name="envoyer" id="envoyer" value="Envoyer" className= "bg-acheter text-primary rounded-2xl p-4 w-full justify-center items-center" />
+                    <Input type="button" name="envoyer" id="envoyer" value="Envoyer" className= "bg-acheter text-primary rounded-2xl p-4 w-full justify-center items-center"  />
                 </div>
             </form>
         </div>

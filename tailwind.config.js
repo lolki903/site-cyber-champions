@@ -7,7 +7,8 @@ module.exports = {
         'acheter': '#F5BB2C',
         'backgroundlinear1': '#E8296233',
         'primary': '#0F1559',
-        'rose':'#E82962'
+        'rose':'#E82962',
+        'vert':"#44DC4E"
     },
     fontFamily: {
       'sans':['Pally', 'sans-serif'],
@@ -26,6 +27,7 @@ module.exports = {
   },
   width:{
     'img':' 668px',
+    'adress':' 120%',
   },
   height:{
     'img':'494px',
