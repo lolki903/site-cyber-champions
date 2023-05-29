@@ -9,6 +9,9 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Games from "./Screen/Games";
+import Compte from "./Screen/Compte";
+import Adress from "./Screen/Adress";
+import MessagEnvoi from "./Screen/Message";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -31,6 +34,18 @@ const App = () => {
       path: "/compte",
       element: <Create />,
     },
+    {
+      path: "/informationperso",
+      element: <Compte />,
+    },
+    {
+      path: "/addressenrigistre",
+      element: <Adress />,
+    },
+    {
+      path: "/cacac",
+      element:<MessagEnvoi />
+    }
   ]);
   
   return (
