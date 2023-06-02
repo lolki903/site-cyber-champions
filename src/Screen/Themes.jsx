@@ -13,7 +13,7 @@ const Themes = () => {
             <h1 className='text-4xl'>Découvrez de nombreux thèmes :</h1>
             <p className='pt-5'>Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
          </div>
-         <div className="flex text-white justify-center w-9/12 m-auto pt-20">
+         <div className="flex text-white justify-center w-12/12 m-auto pt-20 flex-wrap">
             <BlockDiv text="Sécurité et mot de passe" img={cadena} />
             <BlockDiv text="Gestion des écrans" img={ecran} />
             <BlockDiv text="Réseaux sociaux" img={resaux} />

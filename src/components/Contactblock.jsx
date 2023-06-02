@@ -56,9 +56,9 @@ const ContactBlock = ({ title, nom, prenom, email, telephone, passsword, onChang
                     : null}
             </div>
             <div className="flex flex-col">
-                <h1 className="text-white text-2xl mb-4">Adresse 1</h1>
+                {adresspage ? <h1 className="text-white text-2xl mb-4">Adresse 1</h1> :null }
                 <div className="flex justify-between">
-                    <form action="" className="pb-20">
+                    <form action="" className="pb-20 w-full">
                         <div className="flex m-auto">
                             <Input type="text" name="nom" id="nom" placeholder="Nom" icon={faUser} className={cssName} onChange={onChange} value={nom} label="Nom" />
                             <Input type="text" name="prenom" id="prenom" placeholder="Prénom" icon={faUser} className={cssName} onChange={(e) => setPrenom(e.target.value)} value={prenom} label="Prénom" />
