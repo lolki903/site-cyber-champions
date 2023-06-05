@@ -12,6 +12,9 @@ import Games from "./Screen/Games";
 import Compte from "./Screen/Compte";
 import Adress from "./Screen/Adress";
 import MessagEnvoi from "./Screen/Message";
+import SuiviDeCommande from "./Screen/SuivideCommande";
+import Login from "./Screen/Login";
+import Panier from "./Screen/Panier";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -43,8 +46,17 @@ const App = () => {
       element: <Adress />,
     },
     {
-      path: "/cacac",
-      element:<MessagEnvoi />
+      auth: true,
+      path: "/suivi",
+      element:<SuiviDeCommande />
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/panier",
+      element: <Panier />,
     }
   ]);
   

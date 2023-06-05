@@ -8,16 +8,16 @@ const Input = ({ type, placeholder, name, value, onChange,icon, className,label 
     if(name === "nom" || name === "prenom"){
         classDiv = "m-auto border-2 border-gray-400 rounded-2xl bg-white mb-7 w-6/12 mr-3 ml-1"
         classlabel = "label relative z-10 ml-20 "
-        classmoinsplus = "z-0 moinsplus realtive focus-visible:border-primay"
+        classmoinsplus = "z-0 moins realtive focus-visible:outline-none"
     }else{
         classDiv = "m-auto border-2 border-gray-400 rounded-2xl bg-white mb-7 "
         classlabel = "label relative z-10 "
-        classmoinsplus = "z-0 moins realtive focus-visible:border-primay"
+        classmoinsplus = "z-0 moins realtive focus-visible:outline-none"
     }
     if(name === "pays" || name === "ville" || name === "codepostal"){
         classDiv = "m-auto border-2 border-gray-400 rounded-2xl bg-white mb-7 w-3/12 mr-8 ml-1"
         classlabel = "label relative z-10 ml-20"
-        classmoinsplus = "z-0 moinspluss realtive focus-visible:border-primay"
+        classmoinsplus = "z-0 moinspluss realtive focus-visible:outline-none"
     }
     return (
         <div className={classDiv}>

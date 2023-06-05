@@ -26,8 +26,9 @@ module.exports = {
     '4xs': '0.375rem',
   },
   width:{
-    'img':' 668px',
+    'img':' 70%',
     'adress':' 120%',
+    'img2':' 40%',
   },
   height:{
     'img':'494px',

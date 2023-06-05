@@ -1,12 +1,26 @@
 import im1 from '../assets/games.svg';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 const Gamesblock = ({ title, number, icon, text, button, classNameButton, classNameTitle, diver, blocktext,setNumber }) => {
+    const dzd = localStorage.getItem('panier')
     if(number < 1){
         setNumber(1)
     }
+    if(number > 5){
+        setNumber(5)
+    }
+    
+    const ajoutpanier = () => {
+        localStorage.setItem('panier', JSON.stringify(number))
+    }
+
+    useEffect(() => {
+       
+    }, [dzd])
+
+
     return (
         <div className={diver}>
             <img src={im1} className='w-1/2' alt='banner cyber champions' />
@@ -22,13 +36,15 @@ const Gamesblock = ({ title, number, icon, text, button, classNameButton, classN
                         <>
                             <div className='flex bg-white w-1/5 p-3 border-2 rounded-2xl justify-center items-center'>
                                 <button onClick={() => setNumber(number - 1)} className='text-primary'><FontAwesomeIcon icon={faMinus} /></button>
-                                <input type="number" name="number" id="number" value={number} className="w-5/12 text-center text-primary pl-2" readOnly />
+                                <input type="number" name="number" id="number" value={number} className="w-6/12 text-center text-primary pl-2" readOnly />
                                 <button onClick={() => setNumber(number + 1)} className='text-primary'><FontAwesomeIcon icon={faPlus} /></button>
                             </div>
                             <p className='text-labell w-3/12'>La quantité maximum de commande est de 5</p>
                         </>
                         : null}
-                    <button className={classNameButton}><FontAwesomeIcon icon={icon} className='text-primary' />{button}</button>
+                         {title === 'Cyber-Champions : Le jeu' ?
+                    <button onClick={ajoutpanier} className={classNameButton}><FontAwesomeIcon icon={icon} className='text-primary' />{button}</button>
+                    : <button className={classNameButton}><FontAwesomeIcon icon={icon} className='text-primary' />{button}</button>}
                 </div>
             </div>
         </div>

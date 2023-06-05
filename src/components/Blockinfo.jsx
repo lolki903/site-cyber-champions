@@ -11,7 +11,7 @@ const Blockinfo = ({ title, icon,setTitle,path }) => {
             window.location.href = "/addressenrigistre"
         }
         if(title === "Suivi de commandes"){
-            window.location.href = "/cacac"
+            window.location.href = "/suivi"
         }
         
 
