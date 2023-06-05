@@ -25,6 +25,11 @@ const Login = () => {
         });
         console.log(response.data.user);
         localStorage.setItem("token", JSON.stringify(response.data.user));
+        if(response.data.user === null || response.data.user === undefined || response.data.user === ""){
+            window.location.href = "/login"
+        }else{
+            window.location.href = "/informationperso"
+        }
     }
 
     return (

@@ -2,6 +2,7 @@ import React from 'react';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ImagePre from '../components/ImagePre';
+import im1 from '../assets/im1.svg';
 
 const Preven = () => {
     return (
@@ -36,7 +37,7 @@ const Preven = () => {
             </div>
           </div>
         </div>
-        <ImagePre />
+        <ImagePre image={im1} />
       </div>      
             );
 };

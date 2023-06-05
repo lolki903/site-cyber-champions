@@ -6,10 +6,10 @@ import panier from '../assets/icon/panier.svg';
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [url, setUrl] = useState("");
+  const [quantite, setQuantite] = useState(JSON.parse(localStorage.getItem('panier')) || 1);
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
-  const quantite = JSON.parse(localStorage.getItem("panier"))
   useEffect(() => {
     if(quantite === null){
         setUrl("/login")
