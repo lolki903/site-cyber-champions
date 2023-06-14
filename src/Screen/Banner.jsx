@@ -5,18 +5,18 @@ import { Header } from './Header';
 
 const Banner = () => {
   return (
-    <div className='banner pb-10 md:pb-60'>
+    <div className='banner pb-10 pb-60 mobile:pb-3'>
   <Header />
-  <div className='flex flex-col md:flex-row justify-center items-center'>
-    <div className='md:w-1/2 mx-4 md:mx-20'>
+  <div className='flex mobile:flex-col-reverse md:flex-row justify-center items-center px-40 mobile:px-4'>
+    <div className='md:w-1/2 mx-4 md:mx-20 mobile:pb-20'>
       <h3 className='text-3xl md:text-5xl text-white font-bold mb-6 md:mb-10'>
         Un jeu <span className='text-acheter'>éducatif</span> pour sensibiliser nos enfants au numérique
       </h3>
       <Buton text='Découvrir le jeu' />
-      <button className='p-2 mt-4 border-2 rounded-lg text-white'>Tester le jeu</button>
+      <button className=' ml-6 mobile:ml-0 py-4 px-8 mt-4 border-2 rounded-lg text-primary bg-white mobile:w-full '>Tester le jeu</button>
     </div>
     <div className='flex justify-center'>
-      <img src={bannerimg} className='w-10/12 md:w-full' alt='banner cyber champions' />
+      <img src={bannerimg} className='w-10/12 mobile:w-full md:w-full mobile:pb-10' alt='banner cyber champions' />
     </div>
   </div>
 </div>

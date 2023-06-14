@@ -4,7 +4,7 @@ import ContactBlock from "../components/Contactblock";
 import { Header } from "./Header";
 import { useState } from "react";
 import Footer  from "./Footer";
-const Adress = () => {
+const Adress = ({mobile,displaynone,onClick}) => {
     const [codepostal, setCodepostal] = useState("")
     const [ville, setVille] = useState("")
     const [pays, setPays] = useState("")
@@ -45,16 +45,16 @@ const Adress = () => {
     };
     
     return (
-        <div className="bg-primary">
-        <Header />
-        <div className="flex px-40">
-            <Connec />
+        // <div className="bg-primary">
+        // <Header />
+        // <div className="flex px-40">
+        //     <Connec />
             <div className="w-full">
-                <ContactBlock title="Adresses enregistrées" nom={nom} prenom={prenom} adress={adress} setAdress={setAdress} societe={societe} setSociete={setSociete} codepostal={codepostal} setCodepostal={setCodepostal} ville={ville} setVille={setVille} pays={pays} setPays={setPays} onChange={onChange} setNom={setNom} setPrenom={setPrenom} click={ajouteAdress}/>
+                <ContactBlock title="Adresses enregistrées" nom={nom} prenom={prenom} adress={adress} setAdress={setAdress} societe={societe} setSociete={setSociete} codepostal={codepostal} setCodepostal={setCodepostal} ville={ville} setVille={setVille} pays={pays} setPays={setPays} onChange={onChange} setNom={setNom} setPrenom={setPrenom} click={ajouteAdress} adresspage={true} mobile={mobile} displaynone={displaynone} onClick={onClick}/>
             </div>
-        </div>
-        <Footer />
-        </div>
+        // </div>
+        // <Footer />
+        // </div>
     );
     }
 

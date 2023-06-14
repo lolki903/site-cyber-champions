@@ -3,14 +3,14 @@ import Connec from "../components/Connec";
 import Footer from "./Footer";
 import { Header } from "./Header";
 
-const SuiviDeCommande = () => {
-    const [commande, setCommande] = useState([])
+const SuiviDeCommande = ({displaynone}) => {
+    // const [commande, setCommande] = useState([])
     return (
-        <div className="bg-primary">
-            <Header />
-            <div className="flex px-40">
-             <Connec />
-             <div className="pl-20">
+        // <div className="bg-primary">
+        //     <Header />
+        //     <div className="flex px-40">
+        //      <Connec />
+             <div className={`pl-20 ${displaynone}`}>
                 <h1 className="text-4xl text-white">Suivi de commandes</h1>
                 <table className="w-full">
                     <thead className="border-b">
@@ -36,9 +36,9 @@ const SuiviDeCommande = () => {
                     
                 </table>
              </div>
-            </div>
-            <Footer />
-        </div>
+        //     </div>
+        //     <Footer />
+        // </div>
     );
 }
 
