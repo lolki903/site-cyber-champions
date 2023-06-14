@@ -7,7 +7,7 @@ const ButonDeconec = ({text}) => {
     }
   return (
     <div className='mb-4'>
-        <button onClick={deconection} className='px-6 py-4 bg-white rounded-2xl leading-19 text-primay '>{text}</button>
+        <button onClick={deconection} className='px-6 py-4 bg-bluebase rounded-2xl leading-19 text-primary mobile:w-full '>{text}</button>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleLeft, faUser } from '@fortawesome/free-solid-svg-icons';
 import Input from "../components/Input";
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -8,15 +8,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
 import BlockAdress from "./BlockAdress";
+import bouton from '../assets/icon/bouton-icone.svg'
 
-const ContactBlock = ({ title, nom, prenom, email, telephone, passsword, onChange, setEmail, setTelephone, setNom, setPrenom, setPassword, adress, setAdress, societe, setSociete, codepostal, setCodepostal, ville, setVille, pays, setPays, click }) => {
+const ContactBlock = ({ title, nom, prenom, email, telephone, passsword, onChange, setEmail, setTelephone, setNom, setPrenom, setPassword, adress, setAdress, societe, setSociete, codepostal, setCodepostal, ville, setVille, pays, setPays, click ,adresspage,informationperso ,mobile,displaynone,onClick}) => {
     const cssform = " border-gray-400 rounded-lg p-4 ml-2 w-10/12 my-2"
     const location = useLocation();
     const currentRoute = location.pathname;
     const token = JSON.parse(localStorage.getItem("token"));
     const [modif, setModif] = useState(false)
-    const [adresspage, setAdresspage] = useState(false)
-    const [informationperso, setInformationperso] = useState(false)
+    // const [adresspage, setAdresspage] = useState(false)
+    // const [informationperso, setInformationperso] = useState(false)
     const [adresses, setAdresses] = useState([])
 
     const ajouteAdress = () => {
@@ -34,32 +35,33 @@ const ContactBlock = ({ title, nom, prenom, email, telephone, passsword, onChang
         if (nom !== token.lastname || prenom !== token.firstname || email !== token.email || passsword !== token.password) {
             setModif(true)
         }
-        if (currentRoute === "/addressenrigistre") {
-            setAdresspage(true)
-        }
-        if (currentRoute === "/informationperso") {
-            setInformationperso(true)
-        }
+        // if (currentRoute === "/addressenrigistre") {
+        //     setAdresspage(true)
+        // }
+        // if (currentRoute === "/informationperso") {
+        //     setInformationperso(true)
+        // }
     }, [nom, prenom, email, passsword, token])
 
     const cssName = "border-gray-400 rounded-lg p-3 my-2 ml-8 w-8/12 flex-row"
 
     return (
-        <div className="pl-20 w-full pb-20">
+        <div className={`pl-20 w-full pb-20 mobile:px-7 ${displaynone}`}>
             <div className="flex justify-between">
+              <button onClick={onClick} className="hidden mobile:block top-28"><img src={bouton} alt=""/></button>
                 <h1 className=" text-white text-4xl mb-5">{title}</h1>
                 {adresspage ?
-                    <button onClick={ajouteAdress} className="text-1xl mb-5 bg-acheter text-primary rounded-lg px-4 py-2 text-right">
+                    <button onClick={ajouteAdress} className="mobile:hidden text-1xl mb-5 bg-acheter text-primary rounded-lg px-4 mobile:px-0 py-2 text-right">
                         Ajouter une adresse
                         <FontAwesomeIcon icon={faPlus} className="ml-2" />
                     </button>
                     : null}
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col ">
                 {adresspage ? <h1 className="text-white text-2xl mb-4">Adresse 1</h1> :null }
                 <div className="flex justify-between">
                     <form action="" className="pb-20 w-full">
-                        <div className="flex m-auto">
+                        <div className="flex m-auto mobile:flex-wrap">
                             <Input type="text" name="nom" id="nom" placeholder="Nom" icon={faUser} className={cssName} onChange={onChange} value={nom} label="Nom" />
                             <Input type="text" name="prenom" id="prenom" placeholder="Prénom" icon={faUser} className={cssName} onChange={(e) => setPrenom(e.target.value)} value={prenom} label="Prénom" />
                         </div>
@@ -68,10 +70,15 @@ const ContactBlock = ({ title, nom, prenom, email, telephone, passsword, onChang
                                 <Input type="text" name="email" id="email" placeholder="Email" icon={faEnvelope} className={cssform} onChange={(e) => setEmail(e.target.value)} value={email} label="Email" />
                                 <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" icon={faPhone} className={cssform} onChange={(e) => setTelephone(e.target.value)} value={telephone} label="Téléphone" />
                                 <Input type="text" name="password" id="password" placeholder="Mot de passe" icon={faLock} className={cssform} onChange={(e) => setPassword(e.target.value)} value={passsword} label="Mot de passe" />
-                            </div> : null}
+                            </div> : <div>cacac</div>}
                         {adresspage ?
                             <BlockAdress adress={adress} setAdress={setAdress} societe={societe} setSociete={setSociete} setPays={setPays} setVille={setVille} setCodepostal={setCodepostal} codepostal={codepostal} ville={ville} pays={pays} /> : null}
-
+                         {adresspage ?
+                    <button onClick={ajouteAdress} className="mobile:block hidden text-1xl mb-5 bg-acheter text-primary rounded-lg px-4 mobile:px-0 py-2 text-right">
+                        Ajouter une adresse
+                        <FontAwesomeIcon icon={faPlus} className="ml-2" />
+                    </button>
+                    : null}
                         {modif ?
                             <div>
                                 <input type="button" name="modif" id="modif" placeholder="Modifier" className="bg-vert text-primary rounded-lg p-4 ml-2 w-5/12" value="Modifier" label="Modifier" />

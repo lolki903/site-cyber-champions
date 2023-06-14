@@ -5,17 +5,18 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ButonDeconec from "./ButonDeconnec";
 import { useLocation } from "react-router-dom";
 
-const Connec = () => {
+const Connec = ({ info, adresses, commande,display }) => {
     const location = useLocation();
   const currentRoute = location.pathname;
   console.log(currentRoute);
     return (
-        <div className="">
-            <Blockinfo title="Informations personnelles" icon={faArrowRight} path="/informationperso"/>
-            <Blockinfo title="Adresses enregistrées" icon={faArrowRight} />
-            <Blockinfo title="Suivi de commandes" icon={faArrowRight} />
+        <div className={display}>
+            <h1 className="text-center mobile:block hidden text-white text-4xl mobile:mb-7">Mon compte</h1>
+            <Blockinfo title="Informations personnelles" icon={faArrowRight} handleClick={info}/>
+            <Blockinfo title="Adresses enregistrées" icon={faArrowRight} handleClick={adresses} />
+            <Blockinfo title="Suivi de commandes" icon={faArrowRight} handleClick={commande} />
             <ButonDeconec text="Se déconnecter" />
-            <button className="text-1xl mb-5 text-red-600 text-center">Supprimer mon compte</button>
+            <button className="mobile:px-6 mobile:py-4 text-1xl mb-5 text-red mobile:text-primary text-center mobile:bg-red rounded-2xl leading-19 mobile:w-full">Supprimer mon compte</button>
           
         </div>
     );
