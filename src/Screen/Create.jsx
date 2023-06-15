@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import axios from "axios";
 import check from "../assets/icon/Check.svg"
 import checked from "../assets/icon/checked.svg"
+import spinner from '../assets/9844-loading-40-paperplane.gif'
 
 const Create = () => {
     const cssform = " border-gray-400 rounded-lg p-4 ml-2 w-10/12"
@@ -20,14 +21,15 @@ const Create = () => {
     const [telephone, setTelephone] = useState("")
     const [checkedd, setCheckedd] = useState(true)
     const [checker, setChecker] = useState(true)
+    const [isloading,setIsloading] =useState(false)
+    const token = localStorage.getItem("token") 
     useEffect(() => {
-      const token = localStorage.getItem("token") 
         if(token){  
             window.location.href = "/informationperso"
         }
 
 
-    }, [nom, prenom, email,checkedd]);
+    }, [nom, prenom, email,checkedd,token]);
     const checkde = () =>{
         setCheckedd(!checkedd)
     }
@@ -36,14 +38,16 @@ const Create = () => {
     }
     const send = async () =>{
     try{
+        setIsloading(true)
         const response = await axios.post("https://cyber-champion.onrender.com/user/create", {
         lastname: nom,
         firstname: prenom,
         email: email,
         password: passsword
         });
+        setIsloading(false)
         localStorage.setItem("token", JSON.stringify(response.data));
-        window.location.reload();
+        
     }catch(error){
         console.log(error);
     }
@@ -53,8 +57,11 @@ const Create = () => {
     }
 
     return (
+        
         <div className="bg-primary">
             <Header />
+            {isloading ? <img src={spinner} alt=""/> :
+            <>
             <div className="text-white flex flex-col justify-center items-center mb-10">
                 <h1 className="text-6xl mb-5">Crée un compte</h1>
             </div>
@@ -81,6 +88,8 @@ const Create = () => {
                     </div>
                 </form>
             </div>
+            </>
+            }
             <Footer />
         </div>
     );

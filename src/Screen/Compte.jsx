@@ -6,6 +6,7 @@ import Adress from "./Adress";
 import Footer from "./Footer";
 import { Header } from "./Header";
 import SuiviDeCommande from "./SuivideCommande";
+import Suppr from "./Suppr";
 
 const Compte = () => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -15,12 +16,14 @@ const Compte = () => {
     const [email, setEmail] = useState(token.email);
     const [telephone, setTelephone] = useState("");
     const [passsword, setPassword] = useState(token.password);
+
     const [infoperso, setInfoperso] = useState(true)
     const [commande, setCommande] = useState(false)
     const [adressespage, setAdressespage] = useState(false)
     const [disp , setDisp] = useState("block")
     const [mobiles , setMobiles] = useState(false)
     const [displaynone , setDisplaynone] = useState("mobile:hidden")
+    const [suppr,setSuppr] = useState(false)
     const onChange = (e) => {
         const { name, value } = e.target;
         if (name === "nom") {
@@ -40,6 +43,7 @@ const Compte = () => {
         setDisp("mobile:hidden")
         setMobiles(true)
         setDisplaynone("mobile:block")
+        setSuppr(false)
     }
     const handlecommand = () => {
         setInfoperso(false)
@@ -48,6 +52,7 @@ const Compte = () => {
         setDisp("mobile:hidden")
         setMobiles(true)
         setDisplaynone("mobile:block")
+        setSuppr(false)
     }
     const handleadress = () => {
         setInfoperso(false)
@@ -56,6 +61,7 @@ const Compte = () => {
         setDisp("mobile:hidden")
         setMobiles(true)
         setDisplaynone("mobile:block")
+        setSuppr(false)
     }
     const displayconnect = () =>{
         setInfoperso(false)
@@ -65,11 +71,20 @@ const Compte = () => {
         setMobiles(true)
         setDisplaynone("mobile:hidden")
     }
+    const handlesuppr =()=>{
+        setInfoperso(false)
+        setCommande(false)
+        setAdressespage(false)
+        setDisp("mobile:hidden")
+        setMobiles(true)
+        setSuppr(true)
+        setDisplaynone("mobile:block")
+    }
     return (
         <div className="bg-primary" >
             <Header />
             <div className="flex px-40 mobile:px-0 mobile:text-center">
-                <Connec info={handleinfo} commande={handlecommand} adresses={handleadress} display={`${disp} mobile:pb-20`} />
+                <Connec info={handleinfo} commande={handlecommand} adresses={handleadress} suppr={handlesuppr} display={`${disp} mobile:pb-20`} />
                 {infoperso ? <ContactBlock nom={nom} prenom={prenom} email={email} telephone={telephone} onChange={onChange} setNom={setNom} setPrenom={setPrenom} setEmail={setEmail} setTelephone={setTelephone} setPassword={setPassword} passsword={passsword} title="Informations personnelles" informationperso={true} mobile={mobiles} displaynone={displaynone} onClick={displayconnect}/>
                     : null}
                     {
@@ -77,6 +92,9 @@ const Compte = () => {
                     }
                     {
                         commande ? <SuiviDeCommande displaynone={displaynone} /> : null
+                    }
+                    {
+                        suppr ? <Suppr /> : null 
                     }
 
             </div>

@@ -15,6 +15,7 @@ import MessagEnvoi from "./Screen/Message";
 import SuiviDeCommande from "./Screen/SuivideCommande";
 import Login from "./Screen/Login";
 import Panier from "./Screen/Panier";
+import ErrorMessage from "./Screen/ErrorMessage";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ const App = () => {
     {
       path: "/panier",
       element: <Panier />,
+    },
+    {
+      path:"/errormess",
+      element: <ErrorMessage />
     }
   ]);
   

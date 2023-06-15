@@ -1,7 +1,8 @@
+import { faEye, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-const Input = ({ type, placeholder, name, value, onChange,icon, className,label , onclick }) => {
+const Input = ({ type, placeholder, name, value, onChange,icon, className,label , onclick,handleclick }) => {
     let classDiv = ""
     let classlabel = ""
     let classmoinsplus = ""
@@ -39,6 +40,7 @@ const Input = ({ type, placeholder, name, value, onChange,icon, className,label 
         className={className}
         onClick={onclick}
         />
+       {name ==="password" ?<button onClick={handleclick}><FontAwesomeIcon icon={faEye} className="pl-7" /></button> :null}
         </div>
         </div>
     );
