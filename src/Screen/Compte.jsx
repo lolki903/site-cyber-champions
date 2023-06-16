@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Connec from "../components/Connec";
 import ContactBlock from "../components/Contactblock";
 import Adress from "./Adress";
@@ -9,13 +10,39 @@ import SuiviDeCommande from "./SuivideCommande";
 import Suppr from "./Suppr";
 
 const Compte = () => {
-    const token = JSON.parse(localStorage.getItem("token"));
-    console.log(token.email);
-    const [nom, setNom] = useState(token.lastname);
-    const [prenom, setPrenom] = useState(token.firstname);
-    const [email, setEmail] = useState(token.email);
+    const token = localStorage.getItem("token")
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                if (token) {
+                    const toke = JSON.parse(localStorage.getItem("token"));
+                    const response = await axios.get(`https://cyber-champion.onrender.com/user/gets/${toke}`);
+                    setNom(response.data.lastname)
+                    setPrenom(response.data.firstname)
+                    setNom(response.data.lastname)
+                    setEmail(response.data.email)
+                    setPassword(response.data.password)
+
+                   if (response.data.status === "pas valide") {
+                        window.location.href = "/verif";
+                    }
+                   
+                }else{
+                    window.location.href = "/login"
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchData();
+    }, [token]);
+    // console.log(toke[0].lastname);
+    const [nom, setNom] = useState();
+    const [prenom, setPrenom] = useState();
+    const [email, setEmail] = useState();
     const [telephone, setTelephone] = useState("");
-    const [passsword, setPassword] = useState(token.password);
+    const [passsword, setPassword] = useState();
 
     const [infoperso, setInfoperso] = useState(true)
     const [commande, setCommande] = useState(false)
@@ -67,6 +94,7 @@ const Compte = () => {
         setInfoperso(false)
         setCommande(false)
         setAdressespage(false)
+        setSuppr(false)
         setDisp("mobile:block")
         setMobiles(true)
         setDisplaynone("mobile:hidden")
@@ -94,7 +122,7 @@ const Compte = () => {
                         commande ? <SuiviDeCommande displaynone={displaynone} /> : null
                     }
                     {
-                        suppr ? <Suppr /> : null 
+                        suppr ? <Suppr onClick={displayconnect}/> : null 
                     }
 
             </div>

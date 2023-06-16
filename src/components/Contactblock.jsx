@@ -70,7 +70,7 @@ const ContactBlock = ({ title, nom, prenom, email, telephone, passsword, onChang
                                 <Input type="text" name="email" id="email" placeholder="Email" icon={faEnvelope} className={cssform} onChange={(e) => setEmail(e.target.value)} value={email} label="Email" />
                                 <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" icon={faPhone} className={cssform} onChange={(e) => setTelephone(e.target.value)} value={telephone} label="Téléphone" />
                                 <Input type="text" name="password" id="password" placeholder="Mot de passe" icon={faLock} className={cssform} onChange={(e) => setPassword(e.target.value)} value={passsword} label="Mot de passe" />
-                            </div> : <div>cacac</div>}
+                            </div> : null}
                         {adresspage ?
                             <BlockAdress adress={adress} setAdress={setAdress} societe={societe} setSociete={setSociete} setPays={setPays} setVille={setVille} setCodepostal={setCodepostal} codepostal={codepostal} ville={ville} pays={pays} /> : null}
                          {adresspage ?

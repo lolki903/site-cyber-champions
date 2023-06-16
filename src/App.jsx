@@ -16,11 +16,16 @@ import SuiviDeCommande from "./Screen/SuivideCommande";
 import Login from "./Screen/Login";
 import Panier from "./Screen/Panier";
 import ErrorMessage from "./Screen/ErrorMessage";
+import EmailVerif from "./Screen/EmailVerif";
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path:"verif",
+      element:<EmailVerif />,
     },
     {
       path: "/contact",

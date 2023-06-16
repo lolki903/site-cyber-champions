@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Input from "../components/Input";
 import { Header } from "./Header";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import bouton from '../assets/icon/bouton-icone.svg'
+import axios from "axios";
 
-
-const Suppr = ({onClick,displaynone,bouton}) => {
-    const [password,setPassword] = useState()
+const Suppr = ({onClick,displaynone}) => {
+    const [password,setPassword] = useState("")
     const [typepassword,setTypepassword] =useState(false)
+    const token = JSON.parse(localStorage.getItem("token"));
     let type;
     const changetype = () => {
         setTypepassword(!typepassword)
@@ -17,14 +19,28 @@ const Suppr = ({onClick,displaynone,bouton}) => {
     }else{
         type="text"
     }
-    const deleteuser = () => {
+    const deleteuser = async() => {
+        try {
+        await axios.post('https://cyber-champion.onrender.com/user/delete', {
+            password: password,
+            id: token
+        })
+        localStorage.removeItem("token")
+        window.location.href = "/login"
+        } catch (error) {
+            console.log(error);
+        }
+        
 
     }
+    console.log(localStorage.getItem("token"));
     return (
         <div className={`pl-20 w-full pb-20 mobile:px-7 ${displaynone}`}>
             <div className="flex flex-col">
-                <button onClick={onClick} className="hidden mobile:block top-28"><img src={bouton} alt="" /></button>
-                <h1 className=" text-white text-4xl mb-5">Supprimer mon compte</h1>
+                <div className="flex">
+                    <button onClick={onClick} className="hidden mobile:block top-28"><img src={bouton} alt="" /></button>
+                    <h1 className=" text-white text-4xl mb-5 mobile:text-left">Supprimer mon compte</h1>
+                </div>
                 <div>
                     <h3  className="text-white text-2xl">
                     Souhaitez vous vraiment supprimer votre compte ?

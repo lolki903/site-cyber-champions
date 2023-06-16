@@ -22,14 +22,31 @@ const Create = () => {
     const [checkedd, setCheckedd] = useState(true)
     const [checker, setChecker] = useState(true)
     const [isloading,setIsloading] =useState(false)
-    const token = localStorage.getItem("token") 
+    const token = localStorage.getItem("token");
+    const [status, setStatus] = useState("");
+
     useEffect(() => {
-        if(token){  
-            window.location.href = "/informationperso"
-        }
+        const fetchData = async () => {
+            try {
+                if (token) {
+                    const toke = JSON.parse(localStorage.getItem("token"));
+                    const response = await axios.get(`https://cyber-champion.onrender.com/user/gets/${toke}`);
+                    setStatus(response.data.status);
 
+                    if (response.data.status === "valide") {
+                        window.location.href = "/informationperso";
+                    } else if (response.data.status === "pas valide") {
+                        window.location.href = "/verif";
+                    }
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
 
-    }, [nom, prenom, email,checkedd,token]);
+        fetchData();
+    }, [token]);
+    
     const checkde = () =>{
         setCheckedd(!checkedd)
     }
@@ -46,16 +63,27 @@ const Create = () => {
         password: passsword
         });
         setIsloading(false)
-        localStorage.setItem("token", JSON.stringify(response.data));
-        
+        localStorage.setItem("token", JSON.stringify(response.data._id))
+
     }catch(error){
         console.log(error);
+        setIsloading(false)
     }
     }
     const redirection = () =>{
         window.location.href = "/login"
     }
-
+    const [typepassword,setTypepassword] =useState(false)
+    let type;
+    const changetype = () => {
+        setTypepassword(!typepassword)
+    }
+    console.log(typepassword);
+    if(typepassword===false){
+        type="password"
+    }else{
+        type="text"
+    }
     return (
         
         <div className="bg-primary">
@@ -74,7 +102,7 @@ const Create = () => {
                     <div className="m-auto forminput">
                         <Input type="text" name="email" id="email" placeholder="Email" icon={faEnvelope} className={cssform} onChange={(e) => setEmail(e.target.value)} value={email} label="Email" />
                         <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" icon={faPhone} className={cssform} onChange={(e) => setTelephone(e.target.value)} value={telephone} label="Téléphone" />
-                        <Input type="password" name="password" id="password" placeholder="Mot de passe" icon={faLock} className={cssform} onChange={(e) => setPassword(e.target.value)} value={passsword} label="Mot de passe" />
+                        <Input type="password" name="password" id="password" placeholder="Mot de passe" icon={faLock} className={cssform} onChange={(e) => setPassword(e.target.value)} value={passsword} label="Mot de passe" onclick={changetype} />
                         <div className="flex items-center py-5">
                         {checker ? <img src={check} alt="" className="mr-2 p-2 cursor-pointer" onClick={checkde2} /> : <img src={checked} alt="" className="mr-2 p-2 cursor-pointer" onClick={checkde2} /> }
                             <label className="text-white text-lg" htmlFor="newsletter">En vous inscrivant, vous acceptez les <span className="text-acheter">termes et conditions ainsi que les conditions générales d’utilisation </span></label>

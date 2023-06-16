@@ -19,7 +19,6 @@ const Input = ({ type, placeholder, name, value, onChange,icon, className,label 
     else if(type === "button"){
         classDiv = "mt-10 mb-10"
         classlabel = "label relative z-10 ml-20"
-        classmoinsplus = "z-0 moinspluss realtive focus-visible:outline-none"
     }
     else{
         classDiv = "m-auto border-2 border-gray-400 rounded-2xl bg-white mb-7 mobile:py-4 py-0.75 "
