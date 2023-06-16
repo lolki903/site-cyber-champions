@@ -38,7 +38,7 @@ const Footer = () => {
             <div className='flex foot justify-center py-20 bg-white'>
 
             <img src={logo} className="w-2/12 logofooter mobile:pb-10" alt="logo cyber champions" />
-            <div className='mt-2 foot ml-20'>
+            <div className='mt-2 foot ml-20 mobile:text-center'>
                 <a className="text-primary" href="/">Mentions légales</a>
                 <a className="text-primary ml-10" href="/">Politiques de confidentialité</a>
                 <a className="text-primary ml-10 mr-10" href="/">Conditions Générales de Vente</a>

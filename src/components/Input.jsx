@@ -1,7 +1,8 @@
+import { faEye, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-const Input = ({ type, placeholder, name, value, onChange,icon, className,label , onclick }) => {
+const Input = ({ type, placeholder, name, value, onChange,icon, className,label , onclick,handleclick }) => {
     let classDiv = ""
     let classlabel = ""
     let classmoinsplus = ""
@@ -18,7 +19,6 @@ const Input = ({ type, placeholder, name, value, onChange,icon, className,label 
     else if(type === "button"){
         classDiv = "mt-10 mb-10"
         classlabel = "label relative z-10 ml-20"
-        classmoinsplus = "z-0 moinspluss realtive focus-visible:outline-none"
     }
     else{
         classDiv = "m-auto border-2 border-gray-400 rounded-2xl bg-white mb-7 mobile:py-4 py-0.75 "
@@ -39,6 +39,7 @@ const Input = ({ type, placeholder, name, value, onChange,icon, className,label 
         className={className}
         onClick={onclick}
         />
+       {name ==="password" ?<button onClick={handleclick}><FontAwesomeIcon icon={faEye} className="pl-7" /></button> :null}
         </div>
         </div>
     );

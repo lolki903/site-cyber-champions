@@ -1,18 +1,24 @@
 import React from "react";
-import Connec from "../components/Connec";
 import ContactBlock from "../components/Contactblock";
-import { Header } from "./Header";
+
 import { useState } from "react";
-import Footer  from "./Footer";
+import axios from "axios";
+
 const Adress = ({mobile,displaynone,onClick}) => {
     const [codepostal, setCodepostal] = useState("")
     const [ville, setVille] = useState("")
     const [pays, setPays] = useState("")
     const [adress, setAdress] = useState("")
     const [societe, setSociete] = useState("")
+
     const token = JSON.parse(localStorage.getItem("token"));
-    const [nom, setNom] = useState(token.lastname);
-    const [prenom, setPrenom] = useState(token.firstname);
+    axios.get(`https://cyber-champion.onrender.com/user/gets/${token}`).then((data)=>{
+        setNom(data.data.lastname)
+        setPrenom(data.data.firstname)
+    })
+
+    const [nom, setNom] = useState();
+    const [prenom, setPrenom] = useState();
     const [numberadress , setNumberadress] = useState([])
     const ajouteAdress = () => {
         const newadress = {
