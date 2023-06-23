@@ -9,9 +9,9 @@ const Preven = () => {
         <div className='pt-20 md:mt-20 pb-40 px-40 mobile:px-4'>
         <div className='grid grid-cols-1 md:grid-cols-2'>
           <div className=''>
-            <p className='text-2xl md:text-3xl w-10/12 md:w-8/12 text-primary mx-auto md:ml-0'>
+            <h3 className='text-2xl md:text-3xl w-10/12 md:w-8/12 text-primary mx-auto md:ml-0'>
               Prévention et sécurité numérique, rendons responsables nos enfants sur internet
-            </p>
+            </h3>
           </div>
           <div className='col-span-1 w-10/12 md:w-9/12 mx-auto md:mx-0'>
             <p className='mt-4 md:mt-0'>

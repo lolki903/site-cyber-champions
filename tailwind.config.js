@@ -15,12 +15,6 @@ module.exports = {
         'bluebase':"#02BFFF",
         'red':'#E82962'
     },
-    fontFamily: {
-      'sans':['Pally', 'sans-serif'],
-      'serif':['Pally', 'serif'],
-      'palmedium':['Pally', 'medium'],
-      'palbold':['Pally', 'bold'],
-  },
   lineHeight:{
     'extra-loose': '2.5',
     '19': '19px',

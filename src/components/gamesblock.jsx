@@ -1,10 +1,11 @@
 import im1 from '../assets/games.svg';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import shop from '../assets/icon/shop.svg';
 
 const Gamesblock = ({ title, number, icon, text, button, classNameButton, classNameTitle, diver, blocktext,setNumber,text2,text3,image }) => {
-    const dzd = localStorage.getItem('panier')
+    
     if(number < 1){
         setNumber(1)
     }
@@ -21,10 +22,10 @@ const Gamesblock = ({ title, number, icon, text, button, classNameButton, classN
         <div className={diver}>
             <img src={image} className='w-6/12  mobile:w-full mobile:pt-20' alt='banner cyber champions' />
             <div className={blocktext}>
-                <h1 className={classNameTitle}>{title}</h1>
+                <h3 className={classNameTitle}>{title}</h3>
                 {title === 'Cyber-Champions : Le jeu' ?
                     <>
-                        <h3 className='text-acheter mb-5'>39.99 €</h3>
+                        <h3 className='text-acheter mb-5 text-2xl'>39.99 €</h3>
                     </> : null}
                 <p className='mb-3'>{text}</p>
                 <p className='mb-3'>{text2}</p>
@@ -42,8 +43,8 @@ const Gamesblock = ({ title, number, icon, text, button, classNameButton, classN
                         </>
                         : null}
                          {title === 'Cyber-Champions : Le jeu' ?
-                    <button onClick={ajoutpanier} className={classNameButton}><FontAwesomeIcon icon={icon} className='text-primary mobile:ml-10' />{button}</button>
-                    : <button className={classNameButton}><FontAwesomeIcon icon={icon} className='text-primary' />{button}</button>}
+                    <button onClick={ajoutpanier} className={classNameButton}><FontAwesomeIcon icon={icon} className='text-primary mobile:ml-10' /><img className='' src={shop} alt="shopping"/> {button}</button>
+                    : <button className={classNameButton}><FontAwesomeIcon icon={icon} className='text-primary w-full' />{button}</button>}
                 </div>
             </div>
         </div>
