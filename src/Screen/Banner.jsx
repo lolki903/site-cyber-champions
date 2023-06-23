@@ -7,9 +7,9 @@ const Banner = () => {
   return (
     <div className='banner pb-10 pb-60 mobile:pb-3'>
   <Header />
-  <div className='flex mobile:flex-col md:flex-row justify-center items-center px-40 mobile:px-4'>
+  <div className='flex mobile:flex-col md:flex-row justify-center items-center px-40 mobile:px-4 '>
     <div className='md:w-1/2 mx-4 md:mx-20 mobile:pb-20'>
-      <h3 className='text-3xl md:text-5xl text-white font-bold mb-6 md:mb-10'>
+      <h3 className='text-4xl md:text-5xl text-white font-bold mb-6 md:mb-10 font-bold'>
         Un jeu <span className='text-acheter'>éducatif</span> pour sensibiliser nos enfants au numérique
       </h3>
       <Buton text='Découvrir le jeu' />

@@ -28,7 +28,7 @@ const Games = () => {
     return (
     <div className='bg-primary'>
       <Header />
-        <Gamesblock title="Cyber-Champions : Le jeu" number={number} classNameTitle='text-4xl mb-5 mobile:mt-10' text={text1} icon={panier} button="Ajouter au panier" classNameButton="mt-10 p-3 m-0 bg-acheter text-primary rounded-lg mobile:text-center" diver={cssdiv} blocktext="blocktext ml-10 mobile:m-auto" setNumber={setNumber} image={Rectangle} />
+        <Gamesblock title="Cyber-Champions : Le jeu" number={number} classNameTitle='text-4xl mb-5 mobile:mt-10' text={text1} icon={panier} button="Ajouter au panier" classNameButton="mt-10 p-3 m-0 bg-acheter text-primary rounded-lg mobile:text-center w-full flex items-center justify-center" diver={cssdiv} blocktext="blocktext ml-10 mobile:m-auto" setNumber={setNumber} image={Rectangle} />
         <Gamesblock title="Un jeu de plateau ludique" classNameTitle='text-4xl mb-5 mobile:mt-10' text={text2} text2={text22} text3={text23}    diver={cssdiv2} blocktext="blocktext mr-20 mobile:m-auto" image={plateau}/>
         <Gamesblock title="Des questions adaptées aux enfants" classNameTitle='text-4xl mb-5 mobile:mt-7' text={text3} text2={text32} text3={text33}  diver={cssdiv3} blocktext="blocktext ml-20 mobile:m-auto"image={cartes} />
         <Themes />

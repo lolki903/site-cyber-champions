@@ -78,7 +78,6 @@ const Create = () => {
     const changetype = () => {
         setTypepassword(!typepassword)
     }
-    console.log(typepassword);
     if(typepassword===false){
         type="password"
     }else{
@@ -102,7 +101,8 @@ const Create = () => {
                     <div className="m-auto forminput">
                         <Input type="text" name="email" id="email" placeholder="Email" icon={faEnvelope} className={cssform} onChange={(e) => setEmail(e.target.value)} value={email} label="Email" />
                         <Input type="text" name="telephone" id="telephone" placeholder="Téléphone" icon={faPhone} className={cssform} onChange={(e) => setTelephone(e.target.value)} value={telephone} label="Téléphone" />
-                        <Input type="password" name="password" id="password" placeholder="Mot de passe" icon={faLock} className={cssform} onChange={(e) => setPassword(e.target.value)} value={passsword} label="Mot de passe" onclick={changetype} />
+                        <Input type={type} name="password" id="password" placeholder="Mot de passe" icon={faLock} className={cssform} onChange={(e) => setPassword(e.target.value)} value={passsword} label="Mot de passe" handleclick={changetype} />
+                        <p className="text-white">Au moins une lettre majuscule, un chiffre et 8 caractères.</p>
                         <div className="flex items-center py-5">
                         {checker ? <img src={check} alt="" className="mr-2 p-2 cursor-pointer" onClick={checkde2} /> : <img src={checked} alt="" className="mr-2 p-2 cursor-pointer" onClick={checkde2} /> }
                             <label className="text-white text-lg" htmlFor="newsletter">En vous inscrivant, vous acceptez les <span className="text-acheter">termes et conditions ainsi que les conditions générales d’utilisation </span></label>

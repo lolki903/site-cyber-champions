@@ -17,6 +17,9 @@ import Login from "./Screen/Login";
 import Panier from "./Screen/Panier";
 import ErrorMessage from "./Screen/ErrorMessage";
 import EmailVerif from "./Screen/EmailVerif";
+import'./pally.css'
+
+
 const App = () => {
   const router = createBrowserRouter([
     {
